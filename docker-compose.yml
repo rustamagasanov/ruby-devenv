@@ -1,0 +1,18 @@
+project:
+  image: registry.project.com/project-apps/project
+  ports:
+    - 3001:3001
+  links:
+    - postgresql:postgresql
+  environment:
+    SECRET_KEY_BASE: "SecretKeyBase"
+    DATABASE_URL: "postgresql://pguser:pgpass@postgresql/project"
+postgresql:
+  image: postgres:9.5
+  environment:
+    POSTGRES_USER: "pguser"
+    POSTGRES_PASSWORD: "pgpass"
+    POSTGRES_DB: "project"
+  ports:
+    - 5432:5432
+
