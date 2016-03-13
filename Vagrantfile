@@ -103,14 +103,14 @@ Vagrant.configure(2) do |config|
     echo "---------------------------------"
     echo ">>>  Installing Ruby/Bundler  <<<"
     echo "---------------------------------"
-    # if which bundle > /dev/null; then
-    #   echo "Nothing to do"
-    # else
+    if which bundle > /dev/null; then
+      echo "Nothing to do"
+    else
       apt-add-repository ppa:brightbox/ruby-ng
       apt-get -qy update
       apt-get install -qy ruby2.3 ruby2.3-dev
       gem install rake bundler --no-rdoc --no-ri
-    # fi
+    fi
     echo "---------------------------------"
     echo ">>>    Setting shell color    <<<"
     echo "---------------------------------"
