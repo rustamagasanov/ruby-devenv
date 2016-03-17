@@ -69,8 +69,16 @@ Vagrant.configure(2) do |config|
     echo "--------------------------------"
     echo ">>>   Installing essentials  <<<"
     echo "--------------------------------"
-      sudo apt-get -qy update
-      sudo apt-get -qy install build-essential git-core unzip nodejs libsqlite3-dev libpq-dev python-software-properties postgresql-client-common postgresql-client
+    sudo apt-get -qy update
+    sudo apt-get -qy install build-essential git-core unzip nodejs libsqlite3-dev libpq-dev python-software-properties
+    echo "--------------------------------"
+    echo ">>>  Installing pg client    <<<"
+    echo "--------------------------------"
+    if which psql > /dev/null; then
+      echo "Nothing to do"
+    else
+      sudo apt-get -qy install postgresql-client-common postgresql-client
+    fi
     echo "--------------------------------"
     echo ">>>     Installing vim       <<<"
     echo "--------------------------------"
