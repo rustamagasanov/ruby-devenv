@@ -69,15 +69,15 @@ Vagrant.configure(2) do |config|
     echo "--------------------------------"
     echo ">>>   Installing essentials  <<<"
     echo "--------------------------------"
-    sudo apt-get -qy update
-    sudo apt-get -qy install build-essential git-core unzip nodejs libsqlite3-dev libpq-dev python-software-properties
+    apt-get -qy update
+    apt-get -qy install build-essential git-core unzip nodejs libsqlite3-dev libpq-dev python-software-properties
     echo "--------------------------------"
     echo ">>>  Installing pg client    <<<"
     echo "--------------------------------"
     if which psql > /dev/null; then
       echo "Nothing to do"
     else
-      sudo apt-get -qy install postgresql-client-common postgresql-client
+      apt-get -qy install postgresql-client-common postgresql-client
     fi
     echo "--------------------------------"
     echo ">>>     Installing vim       <<<"
@@ -85,8 +85,8 @@ Vagrant.configure(2) do |config|
     if which vim > /dev/null; then
       echo "Nothing to do"
     else
-      sudo apt-get -qy update
-      sudo apt-get -qy install vim
+      apt-get -qy update
+      apt-get -qy install vim
     fi
     echo "--------------------------------"
     echo ">>> Installing docker engine <<<"
@@ -94,10 +94,10 @@ Vagrant.configure(2) do |config|
     if which docker > /dev/null; then
       echo "Nothing to do"
     else
-      sudo apt-get -qy update
-      sudo apt-get -qy install curl
-      sudo curl -fsSL https://get.docker.com/ | sh
-      sudo usermod -aG docker vagrant
+      apt-get -qy update
+      apt-get -qy install curl
+      curl -fsSL https://get.docker.com/ | sh
+      usermod -aG docker vagrant
     fi
     echo "---------------------------------"
     echo ">>> Installing docker-compose <<<"
@@ -105,8 +105,8 @@ Vagrant.configure(2) do |config|
     if which docker-compose > /dev/null; then
       echo "Nothing to do"
     else
-      sudo curl -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-      sudo chmod +x /usr/local/bin/docker-compose
+      curl -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+      chmod +x /usr/local/bin/docker-compose
     fi
     echo "---------------------------------"
     echo ">>>  Installing Ruby/Bundler  <<<"
