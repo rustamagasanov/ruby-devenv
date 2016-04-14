@@ -97,7 +97,7 @@ Vagrant.configure(2) do |config|
     else
       apt-get -qy update
       apt-get -qy install curl
-      curl -fsSL https://get.docker.com/ | sh
+      wget -qO- https://get.docker.com/ | sed 's/lxc-docker/lxc-docker-1.11.0/' | sh
       usermod -aG docker vagrant
     fi
     echo "---------------------------------"
