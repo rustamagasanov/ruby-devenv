@@ -8,7 +8,7 @@ The Vagrant box, fully prepared to run as a Ruby development environment.
 
 * postgres-client
 * js-runtime(nodejs)
-* docker
+* docker 1.11.0
 * docker-compose
 * ruby 2.3
 * bundler
