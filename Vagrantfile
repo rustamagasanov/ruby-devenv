@@ -71,7 +71,6 @@ Vagrant.configure(2) do |config|
     echo "--------------------------------"
     apt-get -qy update
     apt-get -qy install build-essential git-core unzip nodejs libsqlite3-dev libpq-dev python-software-properties
-    locale-gen UTF-8
     echo "--------------------------------"
     echo ">>>  Installing pg client    <<<"
     echo "--------------------------------"
